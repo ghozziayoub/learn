@@ -14,6 +14,10 @@ export class PropertiesComponent {
   categoriesList: any[] = [];
 
   constructor(private categoriesService: CategoriesService) {
+    this.getAllCategories();
+  }
+
+  getAllCategories() {
     this.categoriesService.getAllCategories().subscribe({
       next: (result) => {
         this.categoriesList = result;
@@ -22,7 +26,6 @@ export class PropertiesComponent {
         console.log(err);
       },
     });
-
   }
 
   propertiesList = [
