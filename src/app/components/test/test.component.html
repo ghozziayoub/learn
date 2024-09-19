@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+
+<button (click)="addRandomName()">Add Random name</button>
+<ul>
+    @for(user of users;track $index ){
+    <li> {{user}}  <button (click)="removeUserName($index)">delete</button></li>
+    }
+    @empty {
+        <p>There is no names in the list</p>
+    }
+</ul>
+<hr>
+<ul>
+    @for(userDetails of usersDetails;track $index ){
+    <li>
+        {{userDetails.name}} a {{ userDetails.age }} ans est
+        @if(userDetails.isHappy == true){
+        heureux(se)
+        }
+        @else{
+        malheureux(se)
+        }
+    </li>
+    }
+</ul>
+<hr>
+<p>Nom : </p>
+<input type="text" [(ngModel)]="name" />
+my name is {{name}}
+
+<hr>
